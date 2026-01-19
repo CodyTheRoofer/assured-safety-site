@@ -1,1 +1,164 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSured Safety™ | Covert Personal Safety Technology</title>
+    <meta name="description" content="Revolutionary covert GPS tracking technology for personal safety. The last place they'd ever look.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #0a0a0a; --white: #ffffff; --gold: #c9a227; --rose: #b76e79; --steel: #71797E; --pink: #ff2d95; --purple: #9d4edd; --blue: #00d4ff; --orange: #ff6b35; --green: #7fff00; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+        .lava-container { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f0f23 100%); }
+        .lava-layer { position: absolute; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.3) 0%, transparent 50%), radial-gradient(ellipse at 30% 70%, rgba(78, 205, 196, 0.2) 0%, transparent 40%), radial-gradient(ellipse at 70% 30%, rgba(255, 230, 109, 0.25) 0%, transparent 45%); filter: blur(60px); animation: lavaFlow 30s ease-in-out infinite; }
+        .lava-layer:nth-child(2) { animation-delay: -10s; animation-duration: 25s; opacity: 0.7; }
+        .lava-layer:nth-child(3) { animation-delay: -20s; animation-duration: 35s; opacity: 0.5; }
+        @keyframes lavaFlow { 0%, 100% { transform: translate(-25%, -25%) rotate(0deg); } 33% { transform: translate(-15%, -35%) rotate(120deg); } 66% { transform: translate(-35%, -15%) rotate(240deg); } }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: orbFloat 20s ease-in-out infinite; }
+        .orb-1 { width: 400px; height: 400px; background: rgba(255, 107, 107, 0.4); top: 10%; left: 20%; }
+        .orb-2 { width: 300px; height: 300px; background: rgba(78, 205, 196, 0.35); top: 50%; right: 10%; animation-delay: -5s; }
+        .orb-3 { width: 350px; height: 350px; background: rgba(255, 230, 109, 0.3); bottom: 20%; left: 30%; animation-delay: -10s; }
+        .orb-4 { width: 250px; height: 250px; background: rgba(167, 139, 250, 0.35); top: 30%; right: 30%; animation-delay: -15s; }
+        .orb-5 { width: 200px; height: 200px; background: rgba(251, 146, 60, 0.3); bottom: 30%; right: 20%; animation-delay: -7s; }
+        @keyframes orbFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(30px, -30px) scale(1.1); } 50% { transform: translate(-20px, 20px) scale(0.9); } 75% { transform: translate(-30px, -20px) scale(1.05); } }
+        .age-gate { background: rgba(0,0,0,0.9); color: #999; text-align: center; padding: 8px; font-size: 12px; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        nav { position: fixed; top: 32px; width: 100%; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; z-index: 100; backdrop-filter: blur(10px); background: rgba(0,0,0,0.3); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; letter-spacing: 1px; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta { background: var(--gold); color: var(--black); padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s; }
+        .nav-cta:hover { background: var(--white); transform: scale(1.05); }
+        section { padding: 120px 60px; position: relative; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-content { max-width: 800px; }
+        .hero-badge { display: inline-block; background: rgba(201, 162, 39, 0.2); color: var(--gold); padding: 10px 20px; border-radius: 30px; font-size: 14px; margin-bottom: 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1.1; margin-bottom: 30px; }
+        .hero h1 .line { display: block; opacity: 0.6; }
+        .hero h1 .highlight { opacity: 1; color: var(--gold); font-style: italic; }
+        .hero-tagline { font-size: 24px; color: rgba(255,255,255,0.8); margin-bottom: 15px; }
+        .hero-subtext { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 500px; line-height: 1.7; margin-bottom: 40px; }
+        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn-primary { display: inline-block; background: var(--gold); color: var(--black); padding: 18px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s; }
+        .btn-primary:hover { background: var(--white); transform: scale(1.05); }
+        .btn-secondary { display: inline-block; background: transparent; border: 2px solid rgba(255,255,255,0.3); color: var(--white); padding: 16px 38px; border-radius: 30px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s; }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .billboard { text-align: center; padding: 80px 60px; }
+        .billboard h2 { font-family: 'Playfair Display', serif; font-size: 72px; margin-bottom: 15px; }
+        .billboard h2 span { color: var(--gold); }
+        .billboard p { color: rgba(255,255,255,0.5); font-size: 20px; }
+        .divider { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 40px 60px; }
+        .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); }
+        .divider-icon { color: var(--gold); font-size: 14px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 15px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 15px; }
+        .section-header p { color: rgba(255,255,255,0.5); font-size: 18px; max-width: 600px; margin: 0 auto; }
+        .schematic-section { background: rgba(0,0,0,0.3); }
+        .schematic-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .schematic-3d { position: relative; height: 500px; }
+        .plug-exploded { position: relative; width: 100%; height: 100%; }
+        .exploded-part { position: absolute; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .part-visual { display: flex; align-items: center; justify-content: center; }
+        .part-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); white-space: nowrap; }
+        .part-puck { top: 20px; animation: floatPart 3s ease-in-out infinite; }
+        .part-puck .part-visual { width: 60px; height: 30px; background: linear-gradient(135deg, var(--gold), #f5d76e); border-radius: 50%; box-shadow: 0 5px 20px rgba(201, 162, 39, 0.5); font-size: 24px; }
+        .part-base { top: 90px; animation: floatPart 3s ease-in-out infinite 0.2s; }
+        .part-base .part-visual { width: 50px; height: 20px; background: linear-gradient(135deg, #333, #1a1a1a); border-radius: 25px; border: 2px solid rgba(255,255,255,0.1); }
+        .part-battery { top: 150px; animation: floatPart 3s ease-in-out infinite 0.4s; }
+        .part-battery .part-visual { width: 50px; height: 25px; background: linear-gradient(135deg, #16a34a, #15803d); border-radius: 6px; font-size: 12px; }
+        .part-gps { top: 210px; animation: floatPart 3s ease-in-out infinite 0.6s; }
+        .part-gps .part-visual { width: 40px; height: 40px; background: linear-gradient(135deg, var(--blue), #0891b2); border-radius: 8px; font-size: 16px; }
+        .part-lte { top: 275px; animation: floatPart 3s ease-in-out infinite 0.8s; }
+        .part-lte .part-visual { width: 35px; height: 35px; background: linear-gradient(135deg, var(--purple), #7c3aed); border-radius: 6px; font-size: 14px; }
+        .part-shell { top: 340px; animation: floatPart 3s ease-in-out infinite 1s; }
+        .part-shell .part-visual { width: 80px; height: 120px; background: linear-gradient(135deg, #3a3a3a, #1a1a1a); border-radius: 50% 50% 35% 35% / 55% 55% 45% 45%; }
+        @keyframes floatPart { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
+        .schematic-info h3 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 20px; }
+        .schematic-info > p { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+        .spec-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .spec-list li { display: flex; align-items: flex-start; gap: 15px; }
+        .spec-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .spec-icon.blue { background: rgba(0, 212, 255, 0.2); }
+        .spec-icon.purple { background: rgba(157, 78, 221, 0.2); }
+        .spec-icon.green { background: rgba(127, 255, 0, 0.2); }
+        .spec-icon.pink { background: rgba(255, 45, 149, 0.2); }
+        .spec-icon.gold { background: rgba(201, 162, 39, 0.2); }
+        .spec-text strong { display: block; font-size: 15px; margin-bottom: 3px; }
+        .spec-text span { font-size: 13px; color: rgba(255,255,255,0.5); }
+        .device-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
+        .device-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s; }
+        .device-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .device-visual { height: 150px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 64px; }
+        .device-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
+        .device-card .price { color: var(--gold); font-size: 28px; font-weight: 600; margin-bottom: 15px; }
+        .device-card p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+        .device-btn { display: inline-block; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 24px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s; }
+        .device-btn:hover { background: var(--gold); color: var(--black); }
+        .puck-section { background: rgba(0,0,0,0.2); }
+        .puck-tiers { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .puck-tier { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; text-align: center; min-width: 300px; flex: 1; max-width: 400px; }
+        .puck-tier h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px; }
+        .puck-tier .price-range { color: var(--gold); font-size: 20px; margin-bottom: 20px; }
+        .puck-samples { display: flex; gap: 15px; justify-content: center; margin-bottom: 20px; }
+        .puck-sample { width: 50px; height: 50px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); }
+        .puck-tier p { color: rgba(255,255,255,0.5); font-size: 14px; }
+        .drops-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .drop-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; position: relative; transition: all 0.3s; }
+        .drop-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .drop-badge { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .drop-badge.soon { background: rgba(201, 162, 39, 0.2); color: var(--gold); }
+        .drop-visual { height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 48px; }
+        .drop-card h4 { font-size: 18px; margin-bottom: 5px; }
+        .drop-card p { color: rgba(255,255,255,0.5); font-size: 13px; }
+        .preorder-section { background: rgba(201, 162, 39, 0.1); border-top: 1px solid rgba(201, 162, 39, 0.3); border-bottom: 1px solid rgba(201, 162, 39, 0.3); text-align: center; padding: 100px 60px; }
+        .preorder-section h2 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 20px; color: var(--gold); }
+        .preorder-section > p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+        .preorder-form { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 700px; margin: 0 auto; }
+        .preorder-form input, .preorder-form select { flex: 1; min-width: 200px; padding: 18px 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; background: rgba(0,0,0,0.3); color: var(--white); font-size: 16px; outline: none; font-family: 'Outfit', sans-serif; }
+        .preorder-form input:focus, .preorder-form select:focus { border-color: var(--gold); }
+        .preorder-form input::placeholder { color: rgba(255,255,255,0.4); }
+        .preorder-form select { cursor: pointer; }
+        .preorder-form select option { background: var(--black); color: var(--white); }
+        .preorder-form button { background: var(--gold); color: var(--black); padding: 18px 50px; border: none; border-radius: 30px; font-weight: 600; font-size: 16px; cursor: pointer; font-family: 'Outfit', sans-serif; }
+        .preorder-form button:hover { background: var(--white); transform: scale(1.05); }
+        .preorder-note { color: rgba(255,255,255,0.4); font-size: 14px; margin-top: 20px; }
+        .tagline-section { text-align: center; padding: 100px 60px; }
+        .tagline { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.3; max-width: 900px; margin: 0 auto; }
+        .tagline em { font-style: italic; color: var(--gold); }
+        footer { padding: 80px 60px 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 60px; max-width: 1200px; margin: 0 auto 60px; }
+        .footer-brand .logo { margin-bottom: 20px; }
+        .footer-brand p { color: rgba(255,255,255,0.4); font-size: 14px; line-height: 1.7; }
+        .footer-col h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 14px; }
+        .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 13px; }
+        @media (max-width: 1024px) { .schematic-container { grid-template-columns: 1fr; text-align: center; } .schematic-3d { height: 400px; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 42px; } .billboard h2 { font-size: 48px; } .tagline { font-size: 32px; } .section-header h2 { font-size: 36px; } .preorder-section h2 { font-size: 36px; } .nav-links { display: none; } nav { padding: 20px 24px; } section { padding: 80px 24px; } .preorder-section { padding: 80px 24px; } .preorder-form { flex-direction: column; } .preorder-form input, .preorder-form select { min-width: 100%; } .hero-buttons { flex-direction: column; } }
+    </style>
+</head>
+<body>
+<div class="lava-container"><div class="lava-layer"></div><div class="lava-layer"></div><div class="lava-layer"></div><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div><div class="orb orb-5"></div></div>
+<div class="age-gate">🔞 Adult content — You must be 18+ to enter</div>
+<nav><div class="logo"><span>ASS</span>ured Safety</div><ul class="nav-links"><li><a href="#tech">Technology</a></li><li><a href="#devices">Devices</a></li><li><a href="#pucks">Plug N Puck</a></li><li><a href="#drops">Drops</a></li><li><a href="#preorder">Pre-Order</a></li></ul><a href="#preorder" class="nav-cta">Pre-Order Now</a></nav>
+<section class="hero"><div class="hero-content"><div class="hero-badge">🚨 Personal Safety, Reimagined</div><h1><span class="line">They took her phone.</span><span class="line">They took her bag.</span><span class="highlight">They didn't check there.</span></h1><p class="hero-tagline">GPS tracking and silent panic alerts, hidden where no one looks.</p><p class="hero-subtext">The only personal safety device that stays with you when everything else is taken. Concealed. Connected. Protected.</p><div class="hero-buttons"><a href="#preorder" class="btn-primary">Pre-Order Now</a><a href="#tech" class="btn-secondary">See The Tech →</a></div></div></section>
+<section class="billboard"><h2>Rest <span>ASS</span>ured.</h2><p>The one place they won't look.</p></section>
+<div class="divider"><div class="divider-line"></div><div class="divider-icon">◆</div><div class="divider-line"></div></div>
+<section id="tech" class="schematic-section"><div class="section-header"><div class="section-eyebrow">The Technology</div><h2>What's Inside</h2></div><div class="schematic-container"><div class="schematic-3d"><div class="plug-exploded"><div class="exploded-part part-puck"><div class="part-visual">💎</div><div class="part-label">Magnetic Puck</div></div><div class="exploded-part part-base"><div class="part-visual"></div><div class="part-label">Base Plate</div></div><div class="exploded-part part-battery"><div class="part-visual">🔋</div><div class="part-label">250mAh Li-Po</div></div><div class="exploded-part part-gps"><div class="part-visual">📍</div><div class="part-label">GPS Module</div></div><div class="exploded-part part-lte"><div class="part-visual">📶</div><div class="part-label">LTE-M Modem</div></div><div class="exploded-part part-shell"><div class="part-visual"></div><div class="part-label">Medical Silicone Shell</div></div></div></div><div class="schematic-info"><h3>Enterprise Tech. Intimate Form.</h3><p>Same technology used in fleet tracking and asset recovery — miniaturized into a form factor that stays with you when everything else is taken.</p><ul class="spec-list"><li><div class="spec-icon blue">📍</div><div class="spec-text"><strong>u-blox MIA-M10 GPS</strong><span>Less than 3m accuracy, works indoors</span></div></li><li><div class="spec-icon purple">📶</div><div class="spec-text"><strong>Nordic nRF9160 LTE-M</strong><span>Direct cellular, no phone needed</span></div></li><li><div class="spec-icon green">🔋</div><div class="spec-text"><strong>250mAh Li-Po Battery</strong><span>48 hours standby, USB-C charging</span></div></li><li><div class="spec-icon pink">🚨</div><div class="spec-text"><strong>Silent Panic Switch</strong><span>Squeeze to activate, vibration confirms</span></div></li><li><div class="spec-icon gold">💎</div><div class="spec-text"><strong>Magnetic Puck System</strong><span>Swappable gem accessories</span></div></li></ul></div></div></section>
+<div class="divider"><div class="divider-line"></div><div class="divider-icon">◆</div><div class="divider-line"></div></div>
+<section id="devices"><div class="section-header"><div class="section-eyebrow">The Collection</div><h2>Choose Your Edition</h2><p>From essential protection to statement luxury. Same life-saving tech inside.</p></div><div class="device-grid"><div class="device-card"><div class="device-visual">🖤</div><h3>Original Black</h3><div class="price">$59</div><p>Matte silicone. Medical-grade. Where it all begins.</p><a href="#preorder" class="device-btn">Pre-Order</a></div><div class="device-card"><div class="device-visual">🩶</div><h3>Steel</h3><div class="price">$129</div><p>Brushed stainless steel body. Waterproof. Built to last.</p><a href="#preorder" class="device-btn">Pre-Order</a></div><div class="device-card"><div class="device-visual">⬛</div><h3>Noir Edition</h3><div class="price">$179</div><p>Gunmetal PVD finish. Ceramic accents. Dark luxury.</p><a href="#preorder" class="device-btn">Pre-Order</a></div><div class="device-card"><div class="device-visual">✨</div><h3>24K Gold</h3><div class="price">$249</div><p>Real gold plating. Limited production. Pure prestige.</p><a href="#preorder" class="device-btn">Pre-Order</a></div><div class="device-card"><div class="device-visual">🌸</div><h3>Rosé</h3><div class="price">$279</div><p>Rose gold finish. Pavé crystals. Undeniably luxe.</p><a href="#preorder" class="device-btn">Pre-Order</a></div></div></section>
+<section id="pucks" class="puck-section"><div class="section-header"><div class="section-eyebrow">Plug N Puck™</div><h2>Swap Your Style</h2><p>Magnetic gem accessories. Change your look in seconds. Keep your safety.</p></div><div class="puck-tiers"><div class="puck-tier"><h3>Stickies</h3><div class="price-range">$5 - $12</div><div class="puck-samples"><div class="puck-sample" style="background: linear-gradient(135deg, #ff6b6b, #ff8e8e);"></div><div class="puck-sample" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);"></div><div class="puck-sample" style="background: linear-gradient(135deg, #a855f7, #7c3aed);"></div><div class="puck-sample" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);"></div></div><p>Adhesive gems. Perfect starter pack. Fun colors.</p></div><div class="puck-tier"><h3>Magnetics</h3><div class="price-range">$15 - $39</div><div class="puck-samples"><div class="puck-sample" style="background: linear-gradient(135deg, #c9a227, #f5d76e);"></div><div class="puck-sample" style="background: linear-gradient(135deg, #b76e79, #d4a5a5);"></div><div class="puck-sample" style="background: radial-gradient(circle, #fff 30%, #e0e0e0 100%);"></div><div class="puck-sample" style="background: linear-gradient(135deg, #1a1a1a, #333);"></div></div><p>Premium magnetic swap. Real gemstones available.</p></div></div></section>
+<section id="drops"><div class="section-header"><div class="section-eyebrow">Limited Drops</div><h2>Seasonal Exclusives</h2><p>Once they're gone, they're gone. Limited production runs.</p></div><div class="drops-grid"><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">🌸</div><h4>Spring Florals</h4><p>Mar 2026 • 500 units</p></div><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">🏖️</div><h4>Summer Neons</h4><p>Jun 2026 • 750 units</p></div><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">🏳️‍🌈</div><h4>Pride Collection</h4><p>Jun 2026 • 1000 units</p></div><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">🎃</div><h4>Halloween</h4><p>Oct 2026 • 500 units</p></div><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">💕</div><h4>Valentines</h4><p>Feb 2027 • 500 units</p></div><div class="drop-card"><div class="drop-badge soon">COMING SOON</div><div class="drop-visual">🎆</div><h4>New Years</h4><p>Dec 2026 • 500 units</p></div></div></section>
+<section id="preorder" class="preorder-section"><h2>Pre-Order Now</h2><p>Be among the first to own ASSured Safety. Early supporters get founder pricing and exclusive access to limited drops. Ships Q2 2026.</p><form class="preorder-form" action="https://formspree.io/f/xbddoyal" method="POST"><input type="hidden" name="type" value="preorder"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><select name="product" required><option value="">Select Your Device</option><option value="original-59">Original Black - $59</option><option value="steel-129">Steel - $129</option><option value="noir-179">Noir Edition - $179</option><option value="gold-249">24K Gold - $249</option><option value="rose-279">Rosé - $279</option></select><button type="submit">Reserve Mine</button></form><p class="preorder-note">No payment required now. You'll be notified when pre-orders open.</p></section>
+<section class="tagline-section"><h2 class="tagline">Rest <em>ASS</em>ured.<br>The one place they won't look.</h2></section>
+<footer><div class="footer-grid"><div class="footer-brand"><div class="logo"><span>ASS</span>ured Safety</div><p>Personal safety technology designed to stay with you when everything else is taken. Covert. Connected. Protected.</p></div><div class="footer-col"><h4>Collection</h4><ul><li><a href="#devices">Original</a></li><li><a href="#devices">Steel</a></li><li><a href="#devices">Noir</a></li><li><a href="#devices">24K Gold</a></li><li><a href="#devices">Rosé</a></li></ul></div><div class="footer-col"><h4>Pucks</h4><ul><li><a href="#pucks">Stickies</a></li><li><a href="#pucks">Magnetics</a></li><li><a href="#drops">Limited Drops</a></li></ul></div><div class="footer-col"><h4>Support</h4><ul><li><a href="#">Help Center</a></li><li><a href="#">Size Guide</a></li><li><a href="#">App Download</a></li><li><a href="#">Warranty</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 ASSured Safety LLC. All rights reserved. Patent Pending.</p></div></footer>
+</body>
+</html>
