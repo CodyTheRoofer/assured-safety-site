@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSured Safety™ | Back Us on Kickstarter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #1a1a2e;
+            --text: #ffffff;
+            --accent: #ff6b6b;
+            --gold: #ffd93d;
+            --teal: #6bcb77;
+            --purple: #9b59b6;
+            --pink: #ff8fab;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        /* === LAVA BACKGROUND === */
+        .lava-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8fab);
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #6bcb77, #4ecdc4);
+            top: 40%;
+            right: -150px;
+            animation-delay: -5s;
+        }
+        
+        .blob-3 {
+            width: 700px;
+            height: 700px;
+            background: linear-gradient(135deg, #9b59b6, #667eea);
+            bottom: -200px;
+            left: 30%;
+            animation-delay: -10s;
+        }
+        
+        .blob-4 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #ffd93d, #ff9f43);
+            top: 60%;
+            left: -100px;
+            animation-delay: -15s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
+        }
+        
+        /* === NAV === */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo span { color: var(--accent); }
+        
+        .back-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent);
+        }
+        
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+        }
+        
+        .campaign-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--teal), #4ecdc4);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-sub {
+            font-size: 22px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        /* === FUNDING PROGRESS === */
+        .funding-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .funding-amount {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), #ff9f43);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .funding-goal {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            border-radius: 50px;
+            width: 0%;
+            animation: fillProgress 2s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes fillProgress {
+            to { width: 73%; }
+        }
+        
+        .funding-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .btn-back {
+            display: block;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--accent), #ff8fab);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* === VIDEO SECTION === */
+        .video-section {
+            padding: 80px 24px;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .play-btn {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .play-btn:hover { transform: scale(1.1); }
+        
+        .play-btn::after {
+            content: '';
+            border: 20px solid transparent;
+            border-left: 30px solid white;
+            margin-left: 10px;
+        }
+        
+        /* === TIERS === */
+        .tiers-section {
+            padding: 100px 24px;
+        }
+        
+        .section-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(36px, 5vw, 56px);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--gold), #ff9f43);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tier-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .tier-card.popular {
+            border-color: var(--gold);
+            background: rgba(255, 217, 61, 0.05);
+        }
+        
+        .tier-card.popular::before {
+            content: '🔥 MOST POPULAR';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--gold), #ff9f43);
+            color: #1a1a2e;
+            text-align: center;
+            padding: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .tier-card.popular { padding-top: 70px; }
+        
+        .tier-price {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .tier-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        
+        .tier-desc {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .tier-includes {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .tier-includes li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .tier-includes li::before {
+            content: '✓';
+            color: var(--teal);
+            font-weight: 700;
+        }
+        
+        .tier-backers {
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        
+        .btn-tier {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-tier:hover { background: rgba(255,255,255,0.2); }
+        
+        .tier-card.popular .btn-tier {
+            background: linear-gradient(135deg, var(--gold), #ff9f43);
+            color: #1a1a2e;
+        }
+        
+        /* === STORY === */
+        .story-section {
+            padding: 100px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .story-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 24px;
+        }
+        
+        .story-section strong {
+            color: var(--accent);
+        }
+        
+        /* === FAQ === */
+        .faq-section {
+            padding: 100px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-q {
+            padding: 24px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-q::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--accent);
+        }
+        
+        .faq-a {
+            padding: 0 24px 24px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            display: none;
+        }
+        
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-q::after { content: '−'; }
+        
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 60px 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+        
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .logo { font-size: 22px; }
+            .funding-card { padding: 30px 24px; }
+            .funding-amount { font-size: 42px; }
+            .tier-card { padding: 30px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="lava-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+</div>
+
+<nav>
+    <div class="logo"><span>ASS</span>ured Safety</div>
+    <a href="index.html" class="back-link">← Back to Main Site</a>
+</nav>
+
+<section class="hero">
+    <div class="campaign-badge">🚀 NOW LIVE ON KICKSTARTER</div>
+    <h1>Help Us Launch<br>The <em>Safest</em> Secret</h1>
+    <p class="hero-sub">Be part of the movement bringing covert personal safety technology to those who need it most.</p>
+    
+    <div class="funding-card">
+        <div class="funding-amount">$54,750</div>
+        <div class="funding-goal">pledged of $75,000 goal</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="funding-stats">
+            <div class="stat">
+                <div class="stat-value">847</div>
+                <div class="stat-label">Backers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Days Left</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">73%</div>
+                <div class="stat-label">Funded</div>
+            </div>
+        </div>
+        <a href="#tiers" class="btn-back">Back This Project 💪</a>
+    </div>
+</section>
+
+<section class="video-section">
+    <div class="video-container">
+        <div class="play-btn"></div>
+    </div>
+</section>
+
+<section id="tiers" class="tiers-section">
+    <h2 class="section-title">Choose Your <em>Reward</em></h2>
+    
+    <div class="tiers-grid">
+        <div class="tier-card">
+            <div class="tier-price">$29</div>
+            <div class="tier-name">Early Bird Puck Pack</div>
+            <p class="tier-desc">Get started with our Plug N Puck ecosystem. Perfect for testing or gifting.</p>
+            <ul class="tier-includes">
+                <li>3 Magnetic Pucks (Pearl, Ruby, Sapphire)</li>
+                <li>Kickstarter-exclusive colors</li>
+                <li>Free shipping (US)</li>
+            </ul>
+            <div class="tier-backers">127 backers</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+        
+        <div class="tier-card popular">
+            <div class="tier-price">$49</div>
+            <div class="tier-name">Original Device</div>
+            <p class="tier-desc">The core ASSured Safety device in medical-grade silicone. Early bird pricing.</p>
+            <ul class="tier-includes">
+                <li>1 Original Black Device</li>
+                <li>1 Year Premium App Subscription</li>
+                <li>Kickstarter-exclusive carrying case</li>
+                <li>Free shipping (US)</li>
+            </ul>
+            <div class="tier-backers">412 backers</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+        
+        <div class="tier-card">
+            <div class="tier-price">$99</div>
+            <div class="tier-name">Steel Bundle</div>
+            <p class="tier-desc">Premium 316L stainless steel shell with the full puck collection.</p>
+            <ul class="tier-includes">
+                <li>1 Steel Edition Device</li>
+                <li>5 Magnetic Pucks (your choice)</li>
+                <li>2 Years Premium App Subscription</li>
+                <li>Priority shipping</li>
+            </ul>
+            <div class="tier-backers">198 backers</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+        
+        <div class="tier-card">
+            <div class="tier-price">$199</div>
+            <div class="tier-name">24K Gold Edition</div>
+            <p class="tier-desc">Luxury meets safety. Real 24K gold plating for the discerning protector.</p>
+            <ul class="tier-includes">
+                <li>1 24K Gold Device</li>
+                <li>10 Premium Magnetic Pucks</li>
+                <li>Lifetime Premium App Subscription</li>
+                <li>Velvet display case</li>
+                <li>Name engraving option</li>
+            </ul>
+            <div class="tier-backers">74 backers</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+        
+        <div class="tier-card">
+            <div class="tier-price">$499</div>
+            <div class="tier-name">Founder's Collection</div>
+            <p class="tier-desc">The complete collection. One of each device tier plus exclusive founder perks.</p>
+            <ul class="tier-includes">
+                <li>All 5 Device Tiers (Black, Steel, Noir, Gold, Rosé)</li>
+                <li>Complete 12-Puck Collection</li>
+                <li>Lifetime Premium for 3 accounts</li>
+                <li>Founder badge in-app</li>
+                <li>Early access to all future drops</li>
+            </ul>
+            <div class="tier-backers">36 backers • Limited to 100</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+        
+        <div class="tier-card">
+            <div class="tier-price">$5,000</div>
+            <div class="tier-name">Retail Partner</div>
+            <p class="tier-desc">Launch ASSured Safety in your store. Perfect for adult boutiques and safety retailers.</p>
+            <ul class="tier-includes">
+                <li>50 Devices (mix of tiers)</li>
+                <li>200 Puck variety pack</li>
+                <li>POS display materials</li>
+                <li>Wholesale pricing locked for 2 years</li>
+                <li>Direct line to founder</li>
+            </ul>
+            <div class="tier-backers">4 backers • Limited to 20</div>
+            <a href="#" class="btn-tier">Select This Reward</a>
+        </div>
+    </div>
+</section>
+
+<section class="story-section">
+    <h2>Our Story</h2>
+    <p>Personal safety devices fail for one reason: <strong>they can be taken away.</strong></p>
+    <p>Your phone? Gone. Your purse? Gone. That panic button on your keychain? They took your keys.</p>
+    <p>We asked a simple question: <strong>Where won't anyone look?</strong></p>
+    <p>ASSured Safety is the first personal safety device designed to stay with you when everything else is taken. Covert GPS tracking and silent panic alerts, hidden in the one place no attacker will check.</p>
+    <p>This isn't a joke product. This is real technology solving a real problem. The playful branding makes it approachable, but the engineering is deadly serious.</p>
+    <p><strong>Rest ASSured. Help is on the way.</strong></p>
+</section>
+
+<section class="faq-section">
+    <h2 class="section-title">Questions?</h2>
+    
+    <div class="faq-item">
+        <div class="faq-q">How does the GPS tracking work?</div>
+        <div class="faq-a">The device contains a low-power GPS/cellular chip that reports location to our secure servers. The companion app shows real-time location and allows trusted contacts to track you. Battery lasts 5-7 days on a single charge.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-q">Is it actually comfortable?</div>
+        <div class="faq-a">Extremely. The silicone models use medical-grade platinum-cured silicone (the same material used in medical implants). The tapered design and flared base make it comfortable for extended wear. Multiple sizes available.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-q">How do I trigger a panic alert?</div>
+        <div class="faq-a">Three ways: (1) Squeeze pattern on the device itself, (2) Emergency button in the app, (3) Voice command through paired earbuds. Your emergency contacts receive your GPS location instantly.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-q">What about the Plug N Puck system?</div>
+        <div class="faq-a">Pucks are decorative magnetic attachments that snap onto the base of any device. They're also sold separately at mainstream retailers (no age restriction for pucks alone) as a viral entry point. When someone sees a friend's cool puck, they ask where it came from.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-q">When will devices ship?</div>
+        <div class="faq-a">Estimated delivery is Q3 2026. Early bird backers ship first. We'll provide regular manufacturing updates throughout the campaign and production process.</div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ASSured Safety LLC. All rights reserved. Patent Pending.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+        item.classList.toggle('open');
+    });
+});
+</script>
+
+</body>
+</html>
