@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSured Safety™ | Protection Meets Prestige</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --cream: #f5f0e8;
+            --gold: #c9a227;
+            --rose: #b76e79;
+            --steel: #71797E;
+        }
+        body { font-family: 'Outfit', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+        .bg-gradient { position: fixed; inset: 0; z-index: -1; background: radial-gradient(ellipse at 20% 20%, rgba(201, 162, 39, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(183, 110, 121, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(113, 121, 126, 0.1) 0%, transparent 60%), var(--black); animation: bgShift 20s ease-in-out infinite; }
+        @keyframes bgShift { 0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%; } 50% { background-position: 100% 100%, 0% 0%, 50% 50%; } }
+        nav { position: fixed; top: 0; width: 100%; padding: 24px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; letter-spacing: 2px; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 50px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 12px 32px; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; }
+        .nav-cta:hover { background: var(--gold); color: var(--black); }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 40px 100px; }
+        .hero-content { max-width: 900px; }
+        .hero-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); margin-bottom: 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; line-height: 1.2; margin-bottom: 30px; letter-spacing: -1px; }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero-sub { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-cta { display: inline-block; background: var(--white); color: var(--black); padding: 18px 50px; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; transition: all 0.3s; }
+        .hero-cta:hover { background: var(--gold); color: var(--black); }
+        .tagline-section { padding: 150px 40px; text-align: center; }
+        .tagline { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 400; letter-spacing: -1px; max-width: 900px; margin: 0 auto; }
+        .tagline em { font-style: italic; color: var(--gold); }
+        footer { padding: 80px 60px 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom { text-align: center; padding-top: 40px; }
+        .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 13px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 42px; } .tagline { font-size: 36px; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<nav>
+    <div class="logo"><span>ASS</span>ured Safety</div>
+    <ul class="nav-links">
+        <li><a href="#tech">Technology</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#pucks">Pucks</a></li>
+    </ul>
+    <a href="#collection" class="nav-cta">Shop Now</a>
+</nav>
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-eyebrow">Personal Safety, Reimagined</div>
+        <h1>They took her phone.<br>They took her bag.<br><em>They didn't check there.</em></h1>
+        <p class="hero-sub">GPS tracking and silent panic alerts, hidden where no one looks. The only personal safety device that stays with you when everything else is taken.</p>
+        <a href="#collection" class="hero-cta">Discover the Collection</a>
+    </div>
+</section>
+<section class="tagline-section">
+    <h2 class="tagline">Rest <em>ASS</em>ured.<br>The one place they won't look.</h2>
+</section>
+<footer>
+    <div class="footer-bottom">
+        <p>© 2026 ASSured Safety LLC. All rights reserved. Patent Pending.</p>
+    </div>
+</footer>
+</body>
+</html>
